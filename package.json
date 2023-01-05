@@ -26,6 +26,6 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^1.0.0",
-		"youtube-dl-exec": "^2.1.11"
+		"ytdl-core": "^4.11.2"
 	}
 }

@@ -4,11 +4,11 @@
 
   console.log(data);
 
-  export let format: any = (data.result.formats as Array<any>).filter(x => x.format_note != "storyboard" && x.acodec != "none" && x.vcodec == "none").sort((a: any, b: any) => {
-    return b.filesize - a.filesize;
+  export let format: any = (data.result.formats as Array<any>).filter(x => x.hasVideo == false && x.hasAudio == true).sort((a: any, b: any) => {
+    return b.contentLength - a.contentLength;
   })[0]
 </script>
-
+{data.result.videoDetails.title} <br>
 {#if format}
   <audio controls>
     <source src={format.url} type="audio/ogg" />

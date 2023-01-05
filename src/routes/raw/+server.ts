@@ -1,7 +1,6 @@
 import { error, type LoadEvent } from "@sveltejs/kit";
 import type { RequestEvent } from "../$types";
-import pkg from "youtube-dl-exec";
-const { exec } = pkg;
+import ytdl from "ytdl-core";
 
 export async function GET({ url }: RequestEvent) {
   console.log("q");
@@ -12,9 +11,10 @@ export async function GET({ url }: RequestEvent) {
     throw error(400, "Missing 'w' query parameter");
   }
 
-  const result = await exec(`https://www.youtube.com/watch?v=${watchId}`, {
-    dumpJson: true,
-  });
+  const result = await ytdl.getInfo(
+    `https://www.youtube.com/watch?v=${watchId}`,
+    {}
+  );
 
-  return new Response(JSON.stringify(JSON.parse(result.stdout)));
+  return new Response(JSON.stringify(result));
 }
