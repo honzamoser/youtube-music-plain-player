@@ -2,9 +2,6 @@ import { error, type LoadEvent } from "@sveltejs/kit";
 import ytdl from 'ytdl-core'
 
 export async function load({ url }: LoadEvent) {
-  console.log('q');
-  
-
   const watchId = url.searchParams.get("w");
 
   if (watchId === null) {

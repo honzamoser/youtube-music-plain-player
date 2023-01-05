@@ -3,8 +3,6 @@ import type { RequestEvent } from "../$types";
 import ytdl from "ytdl-core";
 
 export async function GET({ url }: RequestEvent) {
-  console.log("q");
-
   const watchId = url.searchParams.get("w");
 
   if (watchId === null) {
