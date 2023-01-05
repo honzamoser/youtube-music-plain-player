@@ -8,11 +8,15 @@ export async function GET({ url }: RequestEvent) {
   if (watchId === null) {
     throw error(400, "Missing 'w' query parameter");
   }
+  if (!ytdl.validateURL(`https://www.youtube.com/watch?v=${watchId}`)) { 
+    throw error(400, "Invalid 'w' query parameter");
+  }
 
   const result = await ytdl.getInfo(
     `https://www.youtube.com/watch?v=${watchId}`,
     {}
   );
+
 
   return new Response(JSON.stringify(result));
 }
