@@ -15,7 +15,7 @@
   <img src={img} width="50%" alt="" style="border-radius: 20px; margin-right: 2em;" />
   <div>
     <h4 class="title">{video.title}</h4>
-    <h5>{video.author.name}</h5>
+    <h5 class="title">{video.author.name}</h5>
   </div>
 </div>
 
