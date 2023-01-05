@@ -1,5 +1,7 @@
 <script lang="ts">
-  // get data from load function
+  import "@fontsource/roboto";
+  import Recommendation from "$lib/recommendation.svelte";
+
   export let data: any;
 
   export let format: any = (data.result.formats as Array<any>)
@@ -9,14 +11,30 @@
     })[0];
 </script>
 
-{data.result.videoDetails.title} <br />
-{#if format}
-  <audio controls>
-    <source src={format.url} type="audio/ogg" />
-  </audio>
-{/if}
+<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 3em;">
+  <h3>{data.result.videoDetails.title}</h3>
+  <h4>{data.result.videoDetails.author.name}</h4>
+  {#if format}
+    <audio controls>
+      <source src={format.url} type="audio/ogg" />
+    </audio>
+  {/if}
+</div>
 
-<footer><a href="https://github.com/WaveLinkdev/youtube-music-plain-player">?</a></footer>
+<h4>Recommendations</h4>
+<hr>
+
+<div
+  style="display: flex; flex-wrap: wrap; align-items: center; flex-direction: row;"
+>
+  {#each data.result.related_videos as x}
+    <Recommendation video={x} />
+  {/each}
+</div>
+
+<footer>
+  <a href="https://github.com/WaveLinkdev/youtube-music-plain-player">?</a>
+</footer>
 
 <style>
   footer {
