@@ -14,6 +14,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>{data.result.videoDetails.title} - {data.result.videoDetails.author.name}</title>
+</svelte:head>
+
 <div
   style="display: flex; flex-direction: column; align-items: center; margin-bottom: 3em;"
 >
