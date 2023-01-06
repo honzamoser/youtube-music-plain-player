@@ -5,11 +5,7 @@
 
   export let data: any;
 
-  export let format: any = (data.result.formats as Array<any>)
-    .filter((x) => x.hasVideo == false && x.hasAudio == true)
-    .sort((a: any, b: any) => {
-      return b.contentLength - a.contentLength;
-    })[0];
+  export let format: any = data.result.format;
 
   function next() {
     console.log("next");
