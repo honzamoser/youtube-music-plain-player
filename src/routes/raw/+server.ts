@@ -7,6 +7,7 @@ export async function GET({ url }: RequestEvent) {
   if (watchId === null) {
     throw error(400, "Missing 'w' query parameter");
   }
+  
   if (!ytdl.validateURL(`https://www.youtube.com/watch?v=${watchId}`)) { 
     throw error(400, "Invalid 'w' query parameter");
   }

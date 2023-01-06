@@ -1,6 +1,6 @@
-import { redirect } from "@sveltejs/kit";
+import { redirect, type LoadEvent } from "@sveltejs/kit";
 
-export function load({ url }) {
+export function load({ url }: LoadEvent) {
   
   if (url.searchParams.has("w")) {
     console.log(url);
