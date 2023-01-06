@@ -1,7 +1,7 @@
 <script lang="ts">
   export let video: any;
 
-  let img = video.thumbnails.sort((a, b) => {
+  let img = video.thumbnails.sort((a: any, b: any) => {
     return b.width * b.height - a.width * a.height;
   })[0].url;
 

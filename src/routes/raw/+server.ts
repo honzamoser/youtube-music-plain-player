@@ -1,5 +1,4 @@
-import { error, type LoadEvent } from "@sveltejs/kit";
-import type { RequestEvent } from "../$types";
+import { error, type RequestEvent } from "@sveltejs/kit";
 import ytdl from "ytdl-core";
 
 export async function GET({ url }: RequestEvent) {

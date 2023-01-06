@@ -1,46 +1,22 @@
 <script lang="ts">
-  import "@fontsource/roboto";
-  import Recommendation from "$lib/recommendation.svelte";
+  let id: string = "";
 
-  export let data: any;
+  function play() {
+    window.location.href = "/watch/?w=" + id;
+  }
 
-  export let format: any = (data.result.formats as Array<any>)
-    .filter((x) => x.hasVideo == false && x.hasAudio == true)
-    .sort((a: any, b: any) => {
-      return b.contentLength - a.contentLength;
-    })[0];
+  function input(x: KeyboardEvent) {
+    const keypress = x.key;
+    if(keypress == "Enter") {
+      play();
+    }
+  }
 </script>
 
-<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 3em;">
-  <h3>{data.result.videoDetails.title}</h3>
-  <h4>{data.result.videoDetails.author.name}</h4>
-  {#if format}
-    <audio controls>
-      <source src={format.url} type="audio/ogg" />
-    </audio>
-  {/if}
-</div>
-
-<h4>Recommendations</h4>
-<hr>
-
 <div
-  style="display: flex; flex-wrap: wrap; align-items: center; flex-direction: row;"
+  style="display: flex; align-items: center; width: 100%; flex-direction: column;"
 >
-  {#each data.result.related_videos as x}
-    <Recommendation video={x} />
-  {/each}
+  <h1>Youtube Plain</h1>
+
+  <input type="text" on:keydown={input} bind:value={id} />
 </div>
-
-<footer>
-  <a href="https://github.com/WaveLinkdev/youtube-music-plain-player">?</a>
-</footer>
-
-<style>
-  footer {
-    position: fixed;
-    bottom: 0;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-  }
-</style>
