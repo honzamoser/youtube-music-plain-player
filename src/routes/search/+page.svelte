@@ -1,24 +1,37 @@
 <script lang="ts">
-  import SearchEntry from "../../lib/searchEntry.svelte";
+  import { goto } from "$app/navigation";
+  import GridDisplay from "$lib/components/gridDisplay.svelte";
+  import VideoCard from "$lib/components/videoCard.svelte";
+  import { fromYTSR } from "$lib/util/DisplayVideoUtil";
+  import type {Video} from "ytsr";
 
   export let data: any;
+  let videos = data.videos
 
-  let videos = data.search.items.filter((x: any) => x.type  == "video");
+  let loading = false;
+
 
   function next() {
-    fetch("/search/next?cd=" + btoa(JSON.stringify(data.search.continuation)))
+    loading = true;
+    fetch("/search/next?cd=" + btoa(JSON.stringify(data.continuation)))
       .then((x) => x.json())
       .then((x) => {
-        const newVideos = x.items.filter((x: any) => x.type == "video");
-        videos = [...videos, ...newVideos];
+        videos = [...videos, ...x];
+        loading = false;
       });
+  }
+
+  function play(id: string) {
+    goto("/watch?w=" + id);
   }
 </script>
 
-<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-  {#each videos as vid}
-    <SearchEntry vid={vid} />
-  {/each}
+<div style="margin-left: 10em; margin-right: 10em;">
+  <GridDisplay colNum={3}>
+    {#each videos as vid}
+      <VideoCard video={vid} callback={play} />
+    {/each}
+  </GridDisplay>
 </div>
 
-<button on:click={next}>Next</button>
+<button on:click={next}>Next</button> {#if loading} Loading... {/if}
