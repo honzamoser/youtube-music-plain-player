@@ -6,7 +6,7 @@
   })[0].url;
 
   function play() {
-    window.location.href = "/?w=" + video.id;
+    window.location.href = "/v=" + video.id;
   }
 </script>
 

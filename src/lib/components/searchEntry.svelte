@@ -2,7 +2,7 @@
   export let vid: any;
 
   function play() {
-    window.location.href = "/watch/?w=" + vid.id;
+    window.location.href = "/watch/?v=" + vid.id;
   }
 </script>
 

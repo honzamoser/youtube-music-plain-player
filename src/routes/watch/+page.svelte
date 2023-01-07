@@ -10,14 +10,14 @@
   function next() {
     console.log("next");
 
-    goto("/watch?w=" + data.related_videos[0].id);
+    goto("/watchv=" + data.related_videos[0].id);
   }
 
   let format: any;
   $: format = data.format;
 
   function play(id: string) {
-    goto("/watch?w=" + id);
+    goto("/watch?v=" + id);
   }
 </script>
 
