@@ -19,7 +19,7 @@ export async function load({ url }: LoadEvent) {
       displayVideos.push(data);
     }
 
-    return { videos: displayVideos, contiunation: search.continuation };
+    return { videos: displayVideos, continuation: search.continuation };
   }
 
   return { search: null };
