@@ -1,10 +1,10 @@
 import { redirect, type LoadEvent } from "@sveltejs/kit";
 
 export async function load({ url }: LoadEvent) {
-  if (url.searchParams.has("w")) {
+  if (url.searchParams.has("v")) {
     console.log(url);
-    const id = url.searchParams.get("w");
-    throw redirect(307, "/watch/?w=" + id);
+    const id = url.searchParams.get("v");
+    throw redirect(307, "/watch/?v=" + id);
   }
 
   

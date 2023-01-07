@@ -3,7 +3,7 @@ import { error, redirect, type LoadEvent } from "@sveltejs/kit";
 import ytdl from "ytdl-core";
 
 export async function load({ url }: LoadEvent) {
-  const watchId = url.searchParams.get("w");
+  const watchId = url.searchParams.get("v");
   if (watchId === null) {
     throw error(400, "Missing 'w' query parameter");
   }

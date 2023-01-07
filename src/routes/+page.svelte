@@ -7,7 +7,7 @@
   function input(x: KeyboardEvent) {
     const keypress = x.key;
     if (keypress == "Enter") {
-      goto("/watch/?w=" + id);
+      goto("/watch/?v=" + id);
     }
   }
 </script>

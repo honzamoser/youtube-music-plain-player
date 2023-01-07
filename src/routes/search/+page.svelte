@@ -22,7 +22,7 @@
   }
 
   function play(id: string) {
-    goto("/watch?w=" + id);
+    goto("/watch?v=" + id);
   }
 </script>
 

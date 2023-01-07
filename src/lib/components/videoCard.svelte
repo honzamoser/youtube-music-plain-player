@@ -37,7 +37,7 @@
   function play() {
     console.log("play");
     callback(video.id);
-    goto("/watch/?w=" + video.id);
+    goto("/watch/?v=" + video.id);
   }
 </script>
 
