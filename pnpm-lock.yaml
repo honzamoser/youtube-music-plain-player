@@ -9,6 +9,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.45.0
   eslint: ^8.28.0
   eslint-plugin-svelte3: ^4.0.0
+  pretty-ms: ^8.0.0
   svelte: ^3.54.0
   svelte-check: ^2.9.2
   tslib: ^2.4.1
@@ -20,6 +21,7 @@ specifiers:
 dependencies:
   '@fontsource/roboto': 4.5.8
   '@sveltejs/adapter-vercel': 1.0.0_@sveltejs+kit@1.0.2
+  pretty-ms: 8.0.0
   ytdl-core: 4.11.2
   ytsr: 3.8.0
 
@@ -1484,6 +1486,11 @@ packages:
       callsites: 3.1.0
     dev: true
 
+  /parse-ms/3.0.0:
+    resolution: {integrity: sha512-Tpb8Z7r7XbbtBTrM9UhpkzzaMrqA2VXMT3YChzYltwV3P3pM6t8wl7TvpMnSTosz1aQAdVib7kdoys7vYOPerw==}
+    engines: {node: '>=12'}
+    dev: false
+
   /path-exists/4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
@@ -1525,6 +1532,13 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
     dev: true
+
+  /pretty-ms/8.0.0:
+    resolution: {integrity: sha512-ASJqOugUF1bbzI35STMBUpZqdfYKlJugy6JBziGi2EE+AL5JPJGSzvpeVXojxrr0ViUYoToUjb5kjSEGf7Y83Q==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      parse-ms: 3.0.0
+    dev: false
 
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}

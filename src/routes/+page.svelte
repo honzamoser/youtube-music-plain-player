@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
   let id: string = "";
 
   function input(x: KeyboardEvent) {

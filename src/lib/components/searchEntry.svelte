@@ -1,24 +1,19 @@
 <script lang="ts">
-  export let video: any;
-
-  let img = video.thumbnails.sort((a: any, b: any) => {
-    return b.width * b.height - a.width * a.height;
-  })[0].url;
+  export let vid: any;
 
   function play() {
-    window.location.href = "/?w=" + video.id;
+    window.location.href = "/watch/?w=" + vid.id;
   }
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="container"
-  on:click={play}
-  style="cursor: pointer; background-image: url({img}); background-size: cover; background-position: center"
+  on:mouseup={play}
+  style="cursor: pointer; background-image: url({vid.bestThumbnail.url}); background-size: cover; background-position: center"
 >
   <div style="padding: 1em; border-radius: 2em; backdrop-filter: blur(5px) grayscale(.5) brightness(30%); max-width: 70%; ">
-    <h4 class="title">{video.title}</h4>
-    <h5 class="title">{video.author.name}</h5>
+    <h4 class="title">{vid.title}</h4>
+    <h5 class="title">{vid.author.name}</h5>
   </div>
 </div>
 
@@ -31,7 +26,7 @@
   }
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;;
     align-items: center;
     padding: 0.5rem;
     border: 1px solid #ccc;

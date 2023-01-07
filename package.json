@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@fontsource/roboto": "^4.5.8",
 		"@sveltejs/adapter-vercel": "^1.0.0",
+		"pretty-ms": "^8.0.0",
 		"ytdl-core": "^4.11.2",
 		"ytsr": "^3.8.0"
 	}
