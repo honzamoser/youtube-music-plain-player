@@ -10,7 +10,7 @@
   function next() {
     console.log("next");
 
-    goto("/watchv=" + data.related_videos[0].id);
+    goto("/watch?v=" + data.related_videos[0].id);
   }
 
   let format: any;
